@@ -1,0 +1,28 @@
+{
+    "name": "-magic-token-bot-for-discord",
+    "version": "1.0.0",
+    "description": "",
+    "main": "main.js",
+    "scripts": {
+      "start": "node main.js"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/6uan/-magic-token-bot-for-discord.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/6uan/-magic-token-bot-for-discord/issues"
+    },
+    "homepage": "https://github.com/6uan/-magic-token-bot-for-discord#readme",
+    "dependencies": {
+      "axios": "^0.27.2",
+      "cheerio": "^1.0.0-rc.12",
+      "discord.js": "^14.1.2",
+      "dotenv": "^16.0.1",
+      "https": "^1.0.0"
+    }
+  }
+  
