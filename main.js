@@ -1,7 +1,7 @@
 console.log("LOADING...");
 
 require("dotenv").config();
-const { DISCORD_TOKEN, DISCORD_ID, PATH, TICKER } = process.env;
+const { DISCORD_TOKEN, DISCORD_ID, TOKEN_PATH, TOKEN_TICKER } = process.env;
 const axios = require("axios");
 const cheerio = require("cheerio");
 const https = require("https");
@@ -27,7 +27,7 @@ function monitor() {
     console.log("UPDATING DATA...");
     
     let httpsAgent = new https.Agent({keepAlive: true});
-    axios.get(`https://coinmarketcap.com/currencies/${PATH}/`, {
+    axios.get(`https://coinmarketcap.com/currencies/${TOKEN_PATH}/`, {
         httpsAgent
     }).then((res) => {
         const $ = cheerio.load(res.data);
@@ -40,7 +40,7 @@ function monitor() {
         }
 
         setNickname(`${price.text().replace("$", "")} USD`);
-        setStatus(`${TICKER} | 24h: ${prefix}${percent.text()}`);
+        setStatus(`${TOKEN_TICKER} | 24h: ${prefix}${percent.text()}`);
         setTimeout(monitor, REFRESH_TIME);
     }).catch((err) => {
         console.log(err);
@@ -49,6 +49,6 @@ function monitor() {
 }
 
 client.on("ready", async function() {
-    console.log("ONLINE", PATH, TICKER);
+    console.log("ONLINE", TOKEN_PATH, TOKEN_TICKER);
     monitor();
 });
